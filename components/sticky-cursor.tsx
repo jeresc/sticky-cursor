@@ -111,13 +111,13 @@ export function StickyCursor({stickyElement}: StickyCursorProps) {
   }, [manageMouseMove, stickyElement])
 
   const template = ({rotate, scaleX, scaleY, x, y}: TransformTemplate) => {
-    return `rotate(${rotate}deg)  scaleX(${scaleX}) scaleY(${scaleY})`
+    return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`
   }
   return (
     <motion.div
       transformTemplate={template}
       ref={cursorRef}
-      className='fixed -z-10 h-5 w-5 rounded-full bg-black mix-blend-difference'
+      className='pointer-events-none fixed -z-50 h-5 w-5 rounded-full bg-black'
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
